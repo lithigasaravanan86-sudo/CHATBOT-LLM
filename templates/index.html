@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaChat AI - Offline Local AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="brand">
+                    <i class="fas fa-brain brand-icon"></i>
+                    <span>NovaChat AI</span>
+                </div>
+            </div>
+            <button id="new-chat-btn" class="new-chat-btn">
+                <i class="fas fa-plus"></i> New Chat
+            </button>
+            <div class="sidebar-info">
+                <p><i class="fas fa-check-circle"></i> 100% Offline AI (No API Key)</p>
+                <p><i class="fas fa-ban"></i> Zero Ollama Dependency</p>
+                <p><i class="fas fa-language"></i> English & Tamil Support</p>
+            </div>
+            <div class="sidebar-footer">
+                <p>&copy; 2026 NovaChat AI</p>
+            </div>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main class="chat-main">
+            <header class="chat-header">
+                <button id="mobile-menu-btn" class="icon-btn mobile-only" aria-label="Toggle Sidebar">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="header-title">
+                    <h1>NovaChat Assistant</h1>
+                    <span class="status-badge"><i class="fas fa-circle"></i> Local Engine Ready</span>
+                </div>
+            </header>
+
+            <div id="chat-box" class="chat-box">
+                <div class="message system-message">
+                    <div class="message-content">
+                        <i class="fas fa-sparkles welcome-icon"></i>
+                        <h3>Welcome to NovaChat AI</h3>
+                        <p>Ask questions in English or Tamil. Running 100% locally on your computer with zero API keys and zero Ollama!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Error Banner -->
+            <div id="error-banner" class="error-banner hidden">
+                <i class="fas fa-exclamation-circle"></i>
+                <span id="error-message"></span>
+                <button id="close-error-btn" class="icon-btn"><i class="fas fa-times"></i></button>
+            </div>
+
+            <div class="input-area">
+                <form id="chat-form">
+                    <textarea id="user-input" placeholder="Type your message here... (e.g., 'What is Python?', 'What is the capital of India?', '25 * 4')" rows="1"></textarea>
+                    <button type="submit" id="send-btn" title="Send Message">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <!-- Markdown Parser -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
